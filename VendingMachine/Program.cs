@@ -25,6 +25,8 @@ namespace VendingMachine
                 if (vendingMachine.ShoppingCart.Count > 0)
                     ShowShoppingCart(vendingMachine);
 
+                Console.WriteLine($"You have {vendingMachine.moneyPool} SEK to spend.\n");
+
                 Console.WriteLine("Pick an option");
                 Console.Write("1. Buy a product \n" +
                             "2. Show all products \n" +
@@ -44,6 +46,7 @@ namespace VendingMachine
                     case ConsoleKey.D1:
                         if (vendingMachine.moneyPool != 0)
                         {
+                            vendingMachine.ShowAll();
                             Console.WriteLine("What would you like to buy?");
                             Console.WriteLine("Type in name or id-number");
                             var input = Console.ReadLine();
@@ -65,7 +68,13 @@ namespace VendingMachine
 
                     case ConsoleKey.NumPad3:
                     case ConsoleKey.D3:
-                        vendingMachine.InsertMoney();
+                        Console.WriteLine("How much money do you wish to insert?");
+                        var insertValue = Console.ReadLine();
+                        var success = int.TryParse(insertValue, out int money);
+                        if(success)
+                            vendingMachine.InsertMoney(money);
+                        else
+                            Console.WriteLine("Sorry, wrong input.\n");
                         break;
 
                     case ConsoleKey.NumPad4:
@@ -77,7 +86,7 @@ namespace VendingMachine
                         break;
 
                     default:
-                        Console.WriteLine("Wrong input");
+                        Console.WriteLine("Wrong input\n");
                         break;
 
 

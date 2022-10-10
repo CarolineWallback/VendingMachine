@@ -69,19 +69,14 @@ namespace VendingMachine
             for (int i = 0; i < Products.Count; i++)
             {
                 Products[i].Examine(Products[i]);
-                //Console.WriteLine($"{i+1}: {Products[i].Name}, Price: {Products[i].Price}, Description: {Products[i].Description}");
             }
 
             Console.WriteLine();
         }
 
-        public void InsertMoney()
+        public void InsertMoney(int money)
         {
-            Console.WriteLine("How much money do you wish to insert?");
-            var success02 = int.TryParse(Console.ReadLine(), out int money);
             moneyPool += money;
-            Console.Clear();
-            Console.WriteLine($"You have {moneyPool} SEK to spend.\n");
         }
         public void EndTransaction()
         {

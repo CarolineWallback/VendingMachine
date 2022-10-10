@@ -11,7 +11,7 @@ namespace VendingMachine
         void Purchase(string productName);
         void Purchase(int id);
         void ShowAll();
-        void InsertMoney();
+        void InsertMoney(int value);
         void EndTransaction();
 
     }

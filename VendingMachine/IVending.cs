@@ -8,8 +8,8 @@ namespace VendingMachine
 {
     internal interface IVending
     {
-        Products Purchase(string productName);
-        Products Purchase(int id);
+        void Purchase(string productName);
+        void Purchase(int id);
         void ShowAll();
         void InsertMoney();
         void EndTransaction();

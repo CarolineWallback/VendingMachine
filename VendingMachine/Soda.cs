@@ -10,17 +10,15 @@ namespace VendingMachine
 {
     public class Soda : Products
     {
-        public Soda()
+        public Soda(string Name, int Price, string Description) : base(Name, Price, Description)
         {
             Name = "Diet Coke";
             Price = 15;
             Description = "Cold drink";
         }
         
-        
         public override void Examine()
         {
-            Console.WriteLine();
             
         }
         public override void Use()

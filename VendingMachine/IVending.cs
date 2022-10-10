@@ -9,6 +9,7 @@ namespace VendingMachine
     internal interface IVending
     {
         Products Purchase(string productName);
+        Products Purchase(int id);
         void ShowAll();
         void InsertMoney();
         void EndTransaction();

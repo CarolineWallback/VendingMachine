@@ -12,13 +12,19 @@ namespace VendingMachine
         private readonly int[] MoneyDenominations = { 1000, 500, 100, 50, 20, 10, 5, 1 };
         public Products Purchase(string productName)
         {
-            if(productName)
+            if()
 
             return 
         }
 
+        public Products Purchase(int id)
+        {
+
+        }
+
         public void ShowAll()
         {
+
 
         }
 
@@ -27,6 +33,7 @@ namespace VendingMachine
             Console.WriteLine("How much money do you wish to insert?");
             var success02 = int.TryParse(Console.ReadLine(), out int money);
             MoneyPool = money;
+            Console.WriteLine($"You have {MoneyPool} SEK to spend.");
 
         }
         public void EndTransaction()

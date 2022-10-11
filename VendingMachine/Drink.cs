@@ -10,20 +10,15 @@ namespace VendingMachine
 {
     public class Drink : Product
     {
-        public Drink(string name, int price, string description) : base(name, price, description)
-        {
-
-        }
-        
+        public Drink(string name, int price, string description) : base(name, price, description){}
+       
         public override void Examine(Product product)
         {
-            Console.WriteLine($"{id} - {product.Name}, {product.Price} SEK, {product.Description}");
+            Console.WriteLine($"{Id} - {product.Name}, {product.Price} SEK, {product.Description}");
         }
         public override void Use(Product product)
         {
             Console.WriteLine($"{product.Name} - Drink and enjoy!");
         }
-
-
     }
 }

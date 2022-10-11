@@ -8,11 +8,10 @@ namespace VendingMachine
 {
     public abstract class Product
     {
-        public int id { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public int Price { get; set;}
         public string Description { get; set; }
-    
 
         public Product(string name, int price, string description)
         {
@@ -20,11 +19,7 @@ namespace VendingMachine
             Price = price;
             Description = description;
         }
-
         public abstract void Examine(Product product);
-
         public abstract void Use(Product product);
-
-
     }
 }

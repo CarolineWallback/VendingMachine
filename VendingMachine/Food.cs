@@ -8,14 +8,11 @@ namespace VendingMachine
 {
     internal class Food : Product
     {
-        public Food(string name, int price, string description) : base(name, price, description)
-        {
-
-        }
+        public Food(string name, int price, string description) : base(name, price, description){}
 
         public override void Examine(Product product)
         {
-            Console.WriteLine($"{id} - {product.Name}, {product.Price} SEK, {product.Description}");
+            Console.WriteLine($"{Id} - {product.Name}, {product.Price} SEK, {product.Description}");
         }
         public override void Use(Product product)
         {

@@ -13,6 +13,6 @@ namespace VendingMachine
         void ShowAll();
         void InsertMoney(int value);
         void EndTransaction();
-
+        void ShowShoppingCart();
     }
 }

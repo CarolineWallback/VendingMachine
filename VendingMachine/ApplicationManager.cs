@@ -53,13 +53,7 @@ namespace VendingMachine
 
                 case ConsoleKey.NumPad3:
                 case ConsoleKey.D3:
-                    Console.WriteLine("How much money do you wish to insert?");
-                    var insertValue = Console.ReadLine();
-                    var success = int.TryParse(insertValue, out int money);
-                    if (success)
-                        vendingMachine.InsertMoney(money);
-                    else
-                        Console.WriteLine("Sorry, wrong input.\n");
+                    vendingMachine.InsertMoney();
                     break;
 
                 case ConsoleKey.NumPad4:

@@ -98,9 +98,41 @@ namespace VendingMachine
             Console.WriteLine();
         }
 
-        public void InsertMoney(int money)
+        public void InsertMoney()
         {
-            MoneyPool += money;
+            bool inserting = true;
+            while(inserting)
+            {
+                Console.WriteLine("Accepted currencies are: 1, 5, 10, 20, 50, 100, 500, 100");
+                Console.WriteLine("Which currency do you wish to insert?");
+                var success = int.TryParse(Console.ReadLine(), out int currency);
+                switch(success)
+                {
+                    case false:
+                        Console.WriteLine("Wrong input.");
+                        break;
+                    case true:
+                        if (!MoneyDenominations.Contains(currency))
+                        {
+                            Console.WriteLine("That is not a valid currency");
+                            break;
+                        }
+          
+                        MoneyPool += currency;
+                        Console.WriteLine($"You inserted {currency}, and now have a total of {MoneyPool} SEK.");
+                        Console.WriteLine("Do you want to insert more? (yes/no)");
+                        var answer = Console.ReadLine().ToUpper();
+                        switch(answer)
+                        {
+                            case "YES":
+                                break;
+                            case "NO":
+                                inserting = false;
+                                break;
+                        }
+                        break;
+                }
+            } 
         }
         public void EndTransaction()
         {

@@ -53,12 +53,5 @@ namespace VendingMachineTest
                 return false;
         }
 
-        [Fact]
-        public void InsertMoneyTest()
-        {
-            vendingmachine.MoneyPool = 0;
-            vendingmachine.InsertMoney(100);
-            Assert.Equal(100, vendingmachine.MoneyPool);
-        }
     }
 }

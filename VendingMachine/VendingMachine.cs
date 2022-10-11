@@ -103,7 +103,7 @@ namespace VendingMachine
             bool inserting = true;
             while(inserting)
             {
-                Console.WriteLine("Accepted currencies are: 1, 5, 10, 20, 50, 100, 500, 100");
+                Console.WriteLine("Accepted currencies are: 1, 5, 10, 20, 50, 100, 500, 1000");
                 Console.WriteLine("Which currency do you wish to insert?");
                 var success = int.TryParse(Console.ReadLine(), out int currency);
                 switch(success)
@@ -128,6 +128,7 @@ namespace VendingMachine
                                 break;
                             case "NO":
                                 inserting = false;
+                                Console.Clear();
                                 break;
                         }
                         break;
@@ -143,9 +144,12 @@ namespace VendingMachine
 
             Console.WriteLine($"\nYour change is: {MoneyPool} SEK");
             int modulus = MoneyDenominations[0];
-            int temp;
 
             MoneyDenominations[0] = MoneyPool / MoneyDenominations[0];
+            if (MoneyDenominations[0] != 0)
+                MoneyPool -= modulus;
+
+            int temp;
 
             for (int i = 1; i < MoneyDenominations.Length; i++)
             {
@@ -153,16 +157,28 @@ namespace VendingMachine
                 MoneyDenominations[i] = (MoneyPool % modulus) / MoneyDenominations[i];
                 modulus = temp;
 
+                if (MoneyDenominations[i] != 0)
+                    MoneyPool -= temp;
+
             }
             Console.WriteLine("You will get: ");
-            Console.WriteLine($"Thousend bill: {MoneyDenominations[0]}");
-            Console.WriteLine($"Fivehundred bill: {MoneyDenominations[1]}");
-            Console.WriteLine($"Hundred bill: {MoneyDenominations[2]}");
-            Console.WriteLine($"Fifty bill: {MoneyDenominations[3]}");
-            Console.WriteLine($"Twenty bill: {MoneyDenominations[4]}");
-            Console.WriteLine($"Ten coin: {MoneyDenominations[5]}");
-            Console.WriteLine($"Five coin: {MoneyDenominations[6]}");
-            Console.WriteLine($"One coin: {MoneyDenominations[7]}");
+
+            if (MoneyDenominations[0] != 0)
+                Console.WriteLine($"Thousend bill: {MoneyDenominations[0]}");
+            if (MoneyDenominations[1] != 0)
+                Console.WriteLine($"Fivehundred bill: {MoneyDenominations[1]}");
+            if (MoneyDenominations[2] != 0)
+                Console.WriteLine($"Hundred bill: {MoneyDenominations[2]}");
+            if (MoneyDenominations[3] != 0)
+                Console.WriteLine($"Fifty bill: {MoneyDenominations[3]}");
+            if (MoneyDenominations[4] != 0)
+                Console.WriteLine($"Twenty bill: {MoneyDenominations[4]}");
+            if (MoneyDenominations[5] != 0)
+                Console.WriteLine($"Ten coin: {MoneyDenominations[5]}");
+            if (MoneyDenominations[6] != 0)
+                Console.WriteLine($"Five coin: {MoneyDenominations[6]}");
+            if (MoneyDenominations[7] != 0)
+                Console.WriteLine($"One coin: {MoneyDenominations[7]}");
         }
     }
 }
